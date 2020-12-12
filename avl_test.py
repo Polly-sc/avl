@@ -54,3 +54,25 @@ class AVLtest(unittest.TestCase):
         self.assertEqual(avl_tree.search(6), node_6)
         self.assertEqual(avl_tree.search(9), node_9)
         self.assertEqual(avl_tree.search(15), node_15)
+
+#вставка узлов дерева
+    def test_Insert(self):
+        tree = AVLTree()
+        tree.insert(20)
+        tree.insert(15)
+        tree.insert(25)
+        tree.insert(10)
+
+        self.assertFalse(tree.root)
+        self.assertFalse(tree.search(15))
+        self.assertFalse(tree.search(25))
+        tree.insert(17)
+        tree.insert(8)
+        self.assertTrue(tree.search(15))
+        self.assertFalse(tree.search(10))
+        self.assertFalse(tree.search(17))
+        self.assertTrue(tree.search(8))
+        tree.insert(9)
+        self.assertTrue(tree.search(10))
+        self.assertTrue(tree.search(8))
+        self.assertEqual(tree.search(9).left.key, 8)
