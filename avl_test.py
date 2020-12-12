@@ -15,3 +15,10 @@ class AVLtest(unittest.TestCase):
         self.assertIsNone(node.right, None)
         self.assertIsNone(node.left, None)
         self.assertIsNone(node.parent, None)
+
+#вставка корня дерева
+    def test_insert_root(self):
+        avl_tree = AVLTree()
+        avl_tree.insert(15)
+        self.assertEqual(avl_tree.root.key, 15)
+        self.assertEqual(avl_tree.root.key, 15)
