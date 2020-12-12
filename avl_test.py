@@ -91,3 +91,17 @@ class AVLtest(unittest.TestCase):
         self.assertIsNone(tree.FindNext(15))
         self.assertEqual(tree.FindNext(20), node1)
         self.assertEqual(tree.FindNext(25), node2)
+
+#нахождение предыдущего узла дерева (левый сын)
+    def test_Prev(self):
+        tree = AVLTree()
+        tree.insert(20)
+        tree.insert(15)
+        tree.insert(25)
+        node1 = tree.root.left
+        tree.insert(10)
+        node2 = node1.left
+
+        self.assertIsNone(tree.FindPrev(25))
+        self.assertEqual(tree.FindPrev(20), node1)
+        self.assertEqual(tree.FindPrev(15), node2)
