@@ -136,4 +136,13 @@ class AVLtest(unittest.TestCase):
         tree.delete_left_node_noChildren(node)
         self.assertIsNone(tree.root.left.key)
 
-        
+
+    def test_delete_left_node_onlyRightChildren(self):
+        tree = AVLTree()
+        tree.insert(20)
+        tree.insert(15)
+        tree.insert(25)
+        tree.insert(17)
+        node = tree.root.left
+        tree.delete_left_node_onlyRightChildren(node)
+        self.assertEqual(tree.root.left.key, 17)
