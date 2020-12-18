@@ -125,3 +125,15 @@ class AVLtest(unittest.TestCase):
 
         self.assertEqual(tree.root.key, 8)
         self.assertEqual(tree.root.left.key, 3)
+
+
+    def test_delete_left_node_noChildren(self):
+        tree = AVLTree()
+        tree.insert(20)
+        tree.insert(15)
+        tree.insert(25)
+        node = tree.root.left
+        tree.delete_left_node_noChildren(node)
+        self.assertIsNone(tree.root.left.key)
+
+        
