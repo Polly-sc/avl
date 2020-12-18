@@ -212,3 +212,20 @@ class AVLtest(unittest.TestCase):
         node = tree.root.right
         tree.delete_right_node_bothChildren(node)
         self.assertEqual(tree.root.right.key, 30)
+
+    # удаление узлов дерева
+    def test_Delete(self):
+        tree = AVLTree()
+        tree.insert(20)
+        tree.insert(15)
+        tree.insert(25)
+        tree.insert(23)
+        tree.insert(27)
+        self.assertEqual(tree.root.right.key, 25)
+        self.assertEqual(tree.root.right.left.key, 23)
+        tree.deleteNode(25)
+        self.assertEqual(tree.root.key, 20)
+        self.assertEqual(tree.root.right.key, 27)
+        self.assertIsNone(tree.root.right.right.key, None)
+        self.assertEqual(tree.root.right.left.key, 23)
+           
